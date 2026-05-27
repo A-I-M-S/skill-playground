@@ -1,0 +1,92 @@
+from dotenv import load_dotenv
+import requests,time,os
+load_dotenv()
+
+PROVIDERS = {
+    "1": {"name": "Cerebras", "model": "meta-llama/llama-3.1-8b-instruct", "pro": "Cerebras"},
+    "2": {"name": "Cloudflare", "model": "ibm-granite/granite-4.0-h-micro", "pro": "Cloudflare"},
+    "3": {"name": "Z.ai", "model": "z-ai/glm-5.1", "pro": "Z.ai"},
+    "4": {"name": "Moonshot", "model": "moonshotai/kimi-k2.6", "pro": "Moonshot AI"},
+    "5": {"name": "Gemini", "model": "google/gemini-2.5-flash", "pro": "Google AI Studio"},
+    "6": {"name": "Xiaomi", "model": "xiaomi/mimo-v2-flash", "pro": "Xiaomi"},
+    "7": {"name": "MiniMax", "model": "minimax-m2.7", "pro": "minimax/highspeed"},
+    "8": {"name": "Together AI", "model": "z-ai/glm-5.1", "pro": "Together"},
+    "9": {"name": "Groq", "model": "openai/gpt-oss-120b", "pro": "groq"},
+    "10": {"name": "AgentRouter", "model": "deepseek-v3.2", "url": "s://agentrouter.org", "key": "AGENTROUTER_AK"},
+    "11": {"name": "Ollama", "model": "gemma4:31b-cloud", "url": "s://ollama.com", "key": "OLLAMA_AK"},
+    "12": {"name": "Ollama CN", "model": "gemma4:e4b-ac", "url": "://ollama.insightginie.com", "key": "OLLAMA_CN"},
+    "13": {"name": "NS2E", "model": "openai/gpt-5.5", "url": "://ca.ns2e.com", "key": "NS2E_AK"},
+}
+
+def chat(pmt, mod, url=None, key=None, pro=None):
+    start = time.time()
+    response = requests.post(
+        "https://openrouter.ai/api/v1/chat/completions" if pro else f"http{url}/v1/chat/completions",
+        headers={
+            "Authorization": f"Bearer {os.getenv(key or 'OPENROUTER_AK')}",
+            "Content-Type": "application/json"
+        },
+        json={
+            "model": mod,
+            "messages": [{"role": "user", "content": pmt}],
+            **({"provider": {"order": [pro], "allow_fallbacks": False}} if pro else {"stream": False})
+        }
+    )
+    print(f"\n⏱ Latency: {(time.time()-start):.2f}s")
+    try: print(response.json()["choices"][0]["message"]["content"])
+    except: print(response.text)
+
+def check_usage(url=None, key=None, pro=None):
+    if pro or not url:
+        print("No usage found")
+        return
+    api_key = os.getenv(key or "OPENROUTER_AK")
+    if not api_key:
+        print("No usage found")
+        return
+    usage_url = f"http{url}/v1/usage"
+    try:
+        response = requests.get(
+            usage_url,
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+            timeout=30,
+        )
+        data = response.json()
+    except Exception:
+        print("No usage found")
+        return
+    if response.status_code >= 400:
+        print("No usage found")
+        return
+    print("\nUsage:")
+    if isinstance(data, dict):
+        for k, v in data.items():
+            print(f"- {k}: {v}")
+    else:
+        print(data)
+
+if __name__=="__main__":
+    while True:
+        try:
+            print("\n1. Cerebras | 2. Cloudflare | 3. Z.ai | 4. Moonshot | 5. Gemini | 6. Xiaomi")
+            print("7. MiniMax | 8. Together AI | 9. Groq | 10. AgentRouter | 11. Ollama | 12. Ollama CN")
+            print("13. NS2E")
+            c=input("\nSelect provider: ").strip()
+        except: break
+        provider = PROVIDERS.get(c)
+        if not provider:
+            break
+        try:
+            action = input("\n1. Prompt | 2. Check usage\nSelect action: ").strip()
+        except:
+            break
+        if action == "1":
+            try:
+                p = input("\nEnter your prompt:\n> ")
+            except:
+                break
+            chat(p, provider["model"], url=provider.get("url"), key=provider.get("key"), pro=provider.get("pro"))
+        elif action == "2":
+            check_usage(url=provider.get("url"), key=provider.get("key"), pro=provider.get("pro"))
+        else:
+            continue
