@@ -4,7 +4,7 @@ load_dotenv()
 
 PROVIDERS = {
     "1": {"name": "Cerebras", "model": "meta-llama/llama-3.1-8b-instruct", "pro": "Cerebras"},
-    "2": {"name": "Cloudflare", "model": "ibm-granite/granite-4.0-h-micro", "pro": "Cloudflare"},
+    "2": {"name": "Cloudflare", "model": "z-ai/glm-4.7-flash", "pro": "cloudflare"},
     "3": {"name": "Z.ai", "model": "z-ai/glm-5.1", "pro": "Z.ai"},
     "4": {"name": "Moonshot", "model": "moonshotai/kimi-k2.6", "pro": "Moonshot AI"},
     "5": {"name": "Gemini", "model": "google/gemini-2.5-flash", "pro": "Google AI Studio"},
@@ -14,7 +14,7 @@ PROVIDERS = {
     "9": {"name": "Groq", "model": "openai/gpt-oss-120b", "pro": "groq"},
     "10": {"name": "AgentRouter", "model": "deepseek-v3.2", "url": "s://agentrouter.org", "key": "AGENTROUTER_AK"},
     "11": {"name": "Ollama", "model": "gemma4:31b-cloud", "url": "s://ollama.com", "key": "OLLAMA_AK"},
-    "12": {"name": "Ollama CN", "model": "gemma4:e4b-ac", "url": "://ollama.insightginie.com", "key": "OLLAMA_CN"},
+    "12": {"name": "Ollama CN", "model": "qwen-ac", "url": "://ollama.insightginie.com", "key": "OLLAMA_CN"},
     "13": {"name": "NS2E", "model": "openai/gpt-5.5", "url": "://ca.ns2e.com", "key": "NS2E_AK"},
 }
 
