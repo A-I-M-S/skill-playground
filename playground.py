@@ -16,6 +16,7 @@ PROVIDERS = {
     "11": {"name": "Ollama", "model": "gemma4:31b-cloud", "url": "s://ollama.com", "key": "OLLAMA_AK"},
     "12": {"name": "Ollama CN", "model": "qwen-ac", "url": "://ollama.insightginie.com", "key": "OLLAMA_CN"},
     "13": {"name": "NS2E", "model": "openai/gpt-5.5", "url": "://ca.ns2e.com", "key": "NS2E_AK"},
+    "14": {"name": "Bedrock", "model": "anthropic/claude-opus-4.6", "pro": "amazon-bedrock/us-east-1"},
 }
 
 def chat(pmt, mod, url=None, key=None, pro=None):
@@ -68,9 +69,7 @@ def check_usage(url=None, key=None, pro=None):
 if __name__=="__main__":
     while True:
         try:
-            print("\n1. Cerebras | 2. Cloudflare | 3. Z.ai | 4. Moonshot | 5. Gemini | 6. Xiaomi")
-            print("7. MiniMax | 8. Together AI | 9. Groq | 10. AgentRouter | 11. Ollama | 12. Ollama CN")
-            print("13. NS2E")
+            print("\n" + " | ".join(f"{k}. {v['name']}" for k, v in PROVIDERS.items()))
             c=input("\nSelect provider: ").strip()
         except: break
         provider = PROVIDERS.get(c)
