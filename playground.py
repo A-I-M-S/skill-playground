@@ -17,6 +17,7 @@ PROVIDERS = {
     "12": {"name": "Ollama CN", "model": "qwen-ac", "url": "://ollama.insightginie.com", "key": "OLLAMA_CN"},
     "13": {"name": "NS2E", "model": "openai/gpt-5.5", "url": "://ca.ns2e.com", "key": "NS2E_AK"},
     "14": {"name": "Bedrock", "model": "anthropic/claude-opus-4.6", "pro": "amazon-bedrock/us-east-1"},
+    "15": {"name": "OpenAI", "model": "openai/gpt-5.5-pro", "pro": "openai"}
 }
 
 def chat(pmt, mod, url=None, key=None, pro=None):
