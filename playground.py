@@ -12,18 +12,20 @@ PROVIDERS = {
     "7": {"name": "MiniMax", "model": "minimax-m2.7", "pro": "minimax/highspeed"},
     "8": {"name": "Together AI", "model": "z-ai/glm-5.1", "pro": "Together"},
     "9": {"name": "Groq", "model": "openai/gpt-oss-120b", "pro": "groq"},
-    "10": {"name": "AgentRouter", "model": "deepseek-v3.2", "url": "s://agentrouter.org", "key": "AGENTROUTER_AK"},
-    "11": {"name": "Ollama", "model": "gemma4:31b-cloud", "url": "s://ollama.com", "key": "OLLAMA_AK"},
-    "12": {"name": "Ollama CN", "model": "qwen-ac", "url": "://ollama.insightginie.com", "key": "OLLAMA_CN"},
-    "13": {"name": "NS2E", "model": "openai/gpt-5.5", "url": "://ca.ns2e.com", "key": "NS2E_AK"},
+    "10": {"name": "AgentRouter", "model": "deepseek-v3.2", "url": "s://agentrouter.org/v1", "key": "AGENTROUTER_AK"},
+    "11": {"name": "Ollama", "model": "gemma4:31b-cloud", "url": "s://ollama.com/v1", "key": "OLLAMA_AK"},
+    "12": {"name": "Ollama CN", "model": "qwen-ac", "url": "://ollama.insightginie.com/v1", "key": "OLLAMA_CN"},
+    "13": {"name": "NS2E", "model": "openai/gpt-5.5", "url": "://ca.ns2e.com/v1", "key": "NS2E_AK"},
     "14": {"name": "Bedrock", "model": "anthropic/claude-opus-4.6", "pro": "amazon-bedrock/us-east-1"},
-    "15": {"name": "OpenAI", "model": "openai/gpt-5.5-pro", "pro": "openai"}
+    "15": {"name": "OpenAI", "model": "openai/gpt-5.5-pro", "pro": "openai"},
+    "16": {"name": "Dough", "model": "kr/deepseek-3.2-thinking-agentic", "url": "s://dough.id/api/v1", "key": "DOUGH_AK"},
+    "17": {"name": "Byteplus", "model": "seed-2-0-pro-260328", "url": "s://ark.ap-southeast.bytepluses.com/api/v3", "key": "BYTEPLUS_AK"}
 }
 
 def chat(pmt, mod, url=None, key=None, pro=None):
     start = time.time()
     response = requests.post(
-        "https://openrouter.ai/api/v1/chat/completions" if pro else f"http{url}/v1/chat/completions",
+        "https://openrouter.ai/api/v1/chat/completions" if pro else f"http{url}/chat/completions",
         headers={
             "Authorization": f"Bearer {os.getenv(key or 'OPENROUTER_AK')}",
             "Content-Type": "application/json"
