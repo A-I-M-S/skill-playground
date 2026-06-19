@@ -9,7 +9,7 @@ PROVIDERS = {
     "4": {"name": "Moonshot", "model": "moonshotai/kimi-k2.6", "pro": "Moonshot AI"},
     "5": {"name": "Gemini", "model": "google/gemini-2.5-flash", "pro": "Google AI Studio"},
     "6": {"name": "Xiaomi", "model": "xiaomi/mimo-v2-flash", "pro": "Xiaomi"},
-    "7": {"name": "MiniMax", "model": "minimax-m2.7", "pro": "minimax/highspeed"},
+    "7": {"name": "MiniMax", "model": "minimax-m3", "pro": "minimax/highspeed"},
     "8": {"name": "Together AI", "model": "z-ai/glm-5.1", "pro": "Together"},
     "9": {"name": "Groq", "model": "openai/gpt-oss-120b", "pro": "groq"},
     "10": {"name": "AgentRouter", "model": "deepseek-v3.2", "url": "s://agentrouter.org/v1", "key": "AGENTROUTER_AK"},
@@ -19,7 +19,10 @@ PROVIDERS = {
     "14": {"name": "Bedrock", "model": "anthropic/claude-opus-4.6", "pro": "amazon-bedrock/us-east-1"},
     "15": {"name": "OpenAI", "model": "openai/gpt-5.5-pro", "pro": "openai"},
     "16": {"name": "Dough", "model": "kr/deepseek-3.2-thinking-agentic", "url": "s://dough.id/api/v1", "key": "DOUGH_AK"},
-    "17": {"name": "Byteplus", "model": "seed-2-0-pro-260328", "url": "s://ark.ap-southeast.bytepluses.com/api/v3", "key": "BYTEPLUS_AK"}
+    "17": {"name": "Byteplus", "model": "seed-2-0-pro-260328", "url": "s://ark.ap-southeast.bytepluses.com/api/v3", "key": "BYTEPLUS_AK"},
+    "18": {"name": "HuggingFace", "model": "zai-org/GLM-5.2", "url": "s://router.huggingface.co/v1", "key": "HF_AK"},
+    "19": {"name": "NVIDIA", "model": "nvidia/nemotron-3-ultra-550b-a55b", "url": "s://integrate.api.nvidia.com/v1", "key": "NVIDIA_AK"}
+    
 }
 
 def chat(pmt, mod, url=None, key=None, pro=None):
