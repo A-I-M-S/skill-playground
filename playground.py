@@ -14,7 +14,7 @@ PROVIDERS = {
     "9": {"name": "Groq", "model": "openai/gpt-oss-120b", "pro": "groq"},
     "10": {"name": "AgentRouter", "model": "deepseek-v3.2", "url": "s://agentrouter.org/v1", "key": "AGENTROUTER_AK"},
     "11": {"name": "Ollama", "model": "gemma4:31b-cloud", "url": "s://ollama.com/v1", "key": "OLLAMA_AK"},
-    "12": {"name": "Ollama CN", "model": "qwen-ac", "url": "://ollama.insightginie.com/v1", "key": "OLLAMA_CN"},
+    "12": {"name": "Ollama CN", "model": "llama-ac", "url": "://ollama.insightginie.com/v1", "key": "OLLAMA_CN"},
     "13": {"name": "NS2E", "model": "openai/gpt-5.5", "url": "://ca.ns2e.com/v1", "key": "NS2E_AK"},
     "14": {"name": "Bedrock", "model": "anthropic/claude-opus-4.6", "pro": "amazon-bedrock/us-east-1"},
     "15": {"name": "OpenAI", "model": "openai/gpt-5.5-pro", "pro": "openai"},
@@ -22,9 +22,8 @@ PROVIDERS = {
     "17": {"name": "Byteplus", "model": "seed-2-0-pro-260328", "url": "s://ark.ap-southeast.bytepluses.com/api/v3", "key": "BYTEPLUS_AK"},
     "18": {"name": "HuggingFace", "model": "zai-org/GLM-5.2", "url": "s://router.huggingface.co/v1", "key": "HF_AK"},
     "19": {"name": "NVIDIA", "model": "nvidia/nemotron-3-ultra-550b-a55b", "url": "s://integrate.api.nvidia.com/v1", "key": "NVIDIA_AK"},
-    "20": {"name": "Tencent", "model": "hy-mt2-plus", "url": "s://tokenhub-intl.tencentcloudmaas.com/v1", "key": "TENCENT_AK"}
-    
-    
+    "20": {"name": "Tencent", "model": "hy-mt2-plus", "url": "s://tokenhub-intl.tencentcloudmaas.com/v1", "key": "TENCENT_AK"},
+    "21": {"name": "Alibaba", "model": "qwen3.7-plus", "url": "s://ws-iyhoobdzibk5p0wv.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1", "key": "ALI_AK"}
 }
 
 def chat(pmt, mod, url=None, key=None, pro=None):
