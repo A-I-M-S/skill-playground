@@ -21,7 +21,9 @@ PROVIDERS = {
     "16": {"name": "Dough", "model": "kr/deepseek-3.2-thinking-agentic", "url": "s://dough.id/api/v1", "key": "DOUGH_AK"},
     "17": {"name": "Byteplus", "model": "seed-2-0-pro-260328", "url": "s://ark.ap-southeast.bytepluses.com/api/v3", "key": "BYTEPLUS_AK"},
     "18": {"name": "HuggingFace", "model": "zai-org/GLM-5.2", "url": "s://router.huggingface.co/v1", "key": "HF_AK"},
-    "19": {"name": "NVIDIA", "model": "nvidia/nemotron-3-ultra-550b-a55b", "url": "s://integrate.api.nvidia.com/v1", "key": "NVIDIA_AK"}
+    "19": {"name": "NVIDIA", "model": "nvidia/nemotron-3-ultra-550b-a55b", "url": "s://integrate.api.nvidia.com/v1", "key": "NVIDIA_AK"},
+    "20": {"name": "Tencent", "model": "hy-mt2-plus", "url": "s://tokenhub-intl.tencentcloudmaas.com/v1", "key": "TENCENT_AK"}
+    
     
 }
 
