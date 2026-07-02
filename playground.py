@@ -3,7 +3,7 @@ import requests,time,os
 load_dotenv()
 
 PROVIDERS = {
-    "1": {"name": "Cerebras", "model": "meta-llama/llama-3.1-8b-instruct", "pro": "Cerebras"},
+    "1": {"name": "Cerebras", "model": "z-ai/glm-4.7", "pro": "Cerebras"},
     "2": {"name": "Cloudflare", "model": "z-ai/glm-4.7-flash", "pro": "cloudflare"},
     "3": {"name": "Z.ai", "model": "z-ai/glm-5.1", "pro": "Z.ai"},
     "4": {"name": "Moonshot", "model": "moonshotai/kimi-k2.6", "pro": "Moonshot AI"},
@@ -23,7 +23,8 @@ PROVIDERS = {
     "18": {"name": "HuggingFace", "model": "zai-org/GLM-5.2", "url": "s://router.huggingface.co/v1", "key": "HF_AK"},
     "19": {"name": "NVIDIA", "model": "nvidia/nemotron-3-ultra-550b-a55b", "url": "s://integrate.api.nvidia.com/v1", "key": "NVIDIA_AK"},
     "20": {"name": "Tencent", "model": "hy-mt2-plus", "url": "s://tokenhub-intl.tencentcloudmaas.com/v1", "key": "TENCENT_AK"},
-    "21": {"name": "Alibaba", "model": "qwen3.7-plus", "url": "s://ws-iyhoobdzibk5p0wv.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1", "key": "ALI_AK"}
+    "21": {"name": "Alibaba", "model": "qwen3.7-plus", "url": "s://ws-iyhoobdzibk5p0wv.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1", "key": "ALI_AK"},
+    "22": {"name": "Z.ai(coding)", "model": "glm-5.2", "url": "s://api.z.ai/api/coding/paas/v4", "key": "ZAICODING"}
 }
 
 def chat(pmt, mod, url=None, key=None, pro=None):
