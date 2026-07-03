@@ -24,7 +24,7 @@ PROVIDERS = {
     "19": {"name": "NVIDIA", "model": "nvidia/nemotron-3-ultra-550b-a55b", "url": "s://integrate.api.nvidia.com/v1", "key": "NVIDIA_AK"},
     "20": {"name": "Tencent", "model": "hy-mt2-plus", "url": "s://tokenhub-intl.tencentcloudmaas.com/v1", "key": "TENCENT_AK"},
     "21": {"name": "Alibaba", "model": "qwen3.7-plus", "url": "s://ws-iyhoobdzibk5p0wv.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1", "key": "ALI_AK"},
-    "22": {"name": "Z.ai(coding)", "model": "glm-5.2", "url": "s://api.z.ai/api/coding/paas/v4", "key": "ZAICODING"}
+    "22": {"name": "Z.ai(coding)", "model": "glm-5-turbo", "url": "s://api.z.ai/api/coding/paas/v4", "key": "ZAICODING"}
 }
 
 def chat(pmt, mod, url=None, key=None, pro=None):
